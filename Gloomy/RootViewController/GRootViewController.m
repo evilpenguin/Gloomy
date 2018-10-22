@@ -65,7 +65,7 @@
     
     if (self.puddleView.frame.origin.y > 0.0f) {
         UITouch *touch = [touches anyObject];
-        if (touch.view == self.cloudContainer) {
+        if (![touch.view isKindOfClass:GCloudView.class] && touch.view != self.puddleView) {
             if (self.removeRainTimer.isValid) [self.removeRainTimer invalidate];
             
             CGPoint point = [touch locationInView:self.view];
